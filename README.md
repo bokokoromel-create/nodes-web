@@ -1,186 +1,216 @@
-# Nodes Web (Nodes Technologie)
+# Nodes Technologie
 
-Site vitrine one-page basé sur un design Figma, construit avec **Next.js 16**, **React 19**, **TypeScript** et **Tailwind CSS 4**.
+> Site vitrine one-page de **Nodes Technologie** — entreprise congolaise (Brazzaville) spécialisée en intelligence artificielle et automatisation.
+
+**Stack** : Next.js 16 &bull; React 19 &bull; TypeScript 5 &bull; Tailwind CSS 4
+
+**Production** : [nodes-web](https://github.com/bokokoromel-create/nodes-web)
 
 ---
 
-## Démarrage
+## Sommaire
 
-### Prérequis
+- [Prérequis](#prérequis)
+- [Installation](#installation)
+- [Scripts](#scripts)
+- [Architecture](#architecture)
+- [Design system](#design-system)
+- [Sections](#sections)
+- [Responsive](#responsive)
+- [Animations](#animations)
+- [Personnalisation](#personnalisation)
+- [Images](#images)
+- [Licence](#licence)
 
-- Node.js 18+
-- npm (ou yarn / pnpm)
+---
 
-### Installation
+## Prérequis
+
+| Outil    | Version minimale |
+|----------|-----------------|
+| Node.js  | 18+             |
+| npm      | 9+ (ou yarn / pnpm) |
+
+---
+
+## Installation
 
 ```bash
+git clone https://github.com/bokokoromel-create/nodes-web.git
+cd nodes-web
 npm install
 ```
 
-### Lancer en développement
+---
 
-```bash
-npm run dev
-```
+## Scripts
 
-Ouvrir [http://localhost:3000](http://localhost:3000).
-
-### Build de production
-
-```bash
-npm run build
-npm run start
-```
-
-### Linter
-
-```bash
-npm run lint
-```
+| Commande          | Description                        |
+|-------------------|------------------------------------|
+| `npm run dev`     | Serveur de développement (port 3000) |
+| `npm run build`   | Build de production                |
+| `npm run start`   | Serveur de production              |
+| `npm run lint`    | Vérification ESLint                |
 
 ---
 
-## Structure du projet
+## Architecture
 
 ```
 nodes-web/
 ├── app/
-│   ├── globals.css    # Variables CSS (design tokens) + styles globaux
-│   ├── layout.tsx     # Layout racine (metadata, html, body)
-│   └── page.tsx       # Page d'accueil (toutes les sections)
-├── public/            # Fichiers statiques (images, etc.)
-├── next.config.ts     # Configuration Next.js (images externes, etc.)
-├── postcss.config.mjs # PostCSS / Tailwind
-├── tsconfig.json      # TypeScript
+│   ├── globals.css        # Design tokens (variables CSS) + styles globaux
+│   ├── layout.tsx         # Layout racine, metadata, balise <html lang="fr">
+│   └── page.tsx           # Page unique : toutes les sections
+├── public/
+│   └── nodes png.png      # Logo Nodes Technologie
+├── next.config.ts         # Config Next.js (domaines images autorisés)
+├── postcss.config.mjs     # PostCSS + Tailwind
+├── tsconfig.json          # Configuration TypeScript
 ├── package.json
-└── README.md          # Cette documentation
+└── README.md
 ```
 
-- **`app/page.tsx`** : composant principal ; contient le header, le hero et toutes les sections (Services, Team, Process, Projects, Testimonials, CTA, Footer).
-- **`app/globals.css`** : design system via variables CSS (`:root`). Toutes les couleurs, espacements et typographies y sont centralisés.
-- **`app/layout.tsx`** : enveloppe HTML, langue `fr`, chargement de `globals.css` et métadonnées (title « Nodes Web »).
+### Fichiers clés
+
+| Fichier             | Rôle                                                                 |
+|---------------------|----------------------------------------------------------------------|
+| `app/page.tsx`      | Composant principal : navbar, hero, services, team, process, projets, témoignages, CTA, footer |
+| `app/globals.css`   | Design system centralisé (couleurs, typo, espacements, animations)   |
+| `app/layout.tsx`    | Enveloppe HTML, langue FR, metadata SEO, viewport                    |
 
 ---
 
-## Design system (variables CSS)
+## Design system
 
-Les variables sont définies dans **`app/globals.css`** sous `:root`. Utilisez-les pour garder le design cohérent.
+Toutes les valeurs sont centralisées dans `app/globals.css` via des variables CSS (`:root`). Modifier une variable met à jour l'ensemble du site.
 
-### Couleurs
+### Palette
 
-| Variable | Usage | Valeur par défaut |
-|----------|--------|-------------------|
-| `--color-brand-primary` | Accent, liens, soulignés | `#00bcd4` |
-| `--color-text-heading` | Titres | `#1a1a1a` |
-| `--color-text-body` | Texte courant | `#333333` |
-| `--color-button-text` | Texte boutons secondaires | `#666666` |
-| `--color-link-text` | Liens, texte secondaire | `#888888` |
-| `--color-border-light` | Bordures, séparateurs | `#e0e0e0` |
-| `--color-background-white` | Fond principal | `#ffffff` |
-| `--color-section-muted` | Fond sections grises | `#f5f5f5` |
-| `--color-section-tint` | Fond sections bleu-vert clair | `#e8f5f2` |
-| `--color-footer-bg` | Fond footer | `#0d9488` |
-| `--color-button-primary-bg` | Boutons CTA verts | `#14b8a6` |
-| `--color-button-primary-hover` | Hover boutons CTA | `#0d9488` |
+| Variable                       | Valeur     | Usage                       |
+|--------------------------------|------------|-----------------------------|
+| `--color-brand-primary`        | `#1a005d`  | Accent principal            |
+| `--color-text-heading`         | `#1a005d`  | Titres                      |
+| `--color-text-body`            | `#2a2a3e`  | Texte courant               |
+| `--color-link-text`            | `#5a5a6e`  | Liens, texte secondaire     |
+| `--color-border-light`         | `#e0e2ee`  | Bordures, séparateurs       |
+| `--color-section-muted`        | `#f5f4fa`  | Fond sections claires       |
+| `--color-section-tint`         | `#ebe8f5`  | Fond sections teintées      |
+| `--color-footer-bg`            | `#1a005d`  | Fond footer                 |
+| `--color-button-primary-bg`    | `#1a005d`  | Boutons CTA                 |
 
 ### Typographie
 
-| Variable | Usage |
-|----------|--------|
-| `--font-family-sans` | Police principale |
-| `--font-size-tagline` | Sous-titres / labels (0.875rem) |
-| `--font-size-heading-1` | Titre hero (clamp 2rem → 3rem) |
-| `--font-size-heading-2` | Titres de section |
-| `--font-size-heading-3` | Sous-titres de blocs |
-| `--font-size-body` | Corps de texte |
-| `--font-size-small` | Texte secondaire / footer |
-| `--font-size-button`, `--font-size-link` | Boutons et liens |
-| `--font-weight-normal` à `--font-weight-extrabold` | Poids |
-| `--line-height-heading` | Interligne titres |
-| `--letter-spacing-expanded` | Letter-spacing labels (GET STARTED, etc.) |
+| Variable                    | Valeur / Plage          |
+|-----------------------------|-------------------------|
+| `--font-family-sans`        | System UI sans-serif    |
+| `--font-size-heading-1`     | `clamp(2rem, 4vw, 3rem)` |
+| `--font-size-heading-2`     | `clamp(1.5rem, 3vw, 2.25rem)` |
+| `--font-size-heading-3`     | `clamp(1.125rem, 2vw, 1.5rem)` |
+| `--font-size-body`          | `1rem`                  |
+| `--font-size-small`         | `0.875rem`              |
+| `--font-weight-extrabold`   | `800`                   |
 
-### Espacements et composants
+### Espacements
 
-| Variable | Usage |
-|----------|--------|
-| `--padding-section-x`, `--padding-section-y` | Padding des sections |
-| `--gap-button-link` | Espace entre bouton et lien (hero, etc.) |
-| `--padding-button-x`, `--padding-button-y` | Padding des boutons |
-| `--border-radius-button` | Rayon des boutons / champs |
-| `--shadow-button`, `--shadow-button-hover` | Ombres boutons |
-| `--shadow-wave` | Ombre légère de la vague hero |
-
-**Exemple d’utilisation dans un composant :**
-
-```tsx
-<p style={{ color: "var(--color-brand-primary)", fontFamily: "var(--font-family-sans)" }}>
-  WE ARE EXPERT TEAM
-</p>
-```
-
-Avec Tailwind (valeurs arbitraires) :
-
-```tsx
-<p className="text-[var(--color-brand-primary)]" style={{ fontFamily: "var(--font-family-sans)" }}>
-  WE ARE EXPERT TEAM
-</p>
-```
+| Variable                | Valeur                         |
+|-------------------------|--------------------------------|
+| `--padding-section-x`  | `clamp(0.75rem, 3vw, 4rem)`   |
+| `--padding-section-y`  | `clamp(1.5rem, 4vw, 4rem)`    |
+| `--border-radius-button`| `0.5rem`                      |
 
 ---
 
-## Sections de la page
+## Sections
 
-| Section | Id / repère | Contenu principal |
-|---------|-------------|-------------------|
-| **Header** | Fixe en haut | Logo Nodes Technologie, nav (Home, Pages, Blog, Shop, Contact), recherche, bouton Appointment, menu mobile |
-| **Hero** | Premier écran | Tagline, titre avec « lives » souligné, paragraphe, Get Started + lien « Read the full story line », image avec vague |
-| **Services** | `#services` | GET STARTED, titre « We provide best quality… », grille 4 cartes (SEO, Business Ideas, Development, Design), READ MORE |
-| **Team** | — | Photo, « We are team of expert people… », 4 points (Project, Teamwork, Solutions, Achievements) |
-| **Process** | — | « Our business process road », 3 étapes (01, 02, 03), image collaboration |
-| **Projects** | — | « Our recent creative projects », carrousel horizontal, VIEW ALL PROJECTS |
-| **Testimonials** | — | « Our happy customers », citation, Jessica Brown – Web Designer, logos clients |
-| **CTA** | — | « Ready? Start your own business », GET STARTED |
-| **Footer** | — | Logo Nodes Technologie, texte, réseaux, SERVICES, USEFUL LINKS, Contact Us, NEWSLETTER, copyright, Terms & Privacy |
+| #  | Section          | ID            | Description                                                              |
+|----|------------------|---------------|--------------------------------------------------------------------------|
+| 1  | **Navbar**       | —             | Barre flottante glassmorphism, logo, navigation, CTA, menu mobile        |
+| 2  | **Hero**         | `#hero`       | Image plein écran + overlay, titre, tagline, CTA "Travailler avec Nodes" |
+| 3  | **Services**     | `#services`   | 4 cartes (IA, Assistant Virtuel, Chatbot, Marketing), bouton             |
+| 4  | **Équipe**       | `#story`      | Photo + texte mission, 4 points forts                                    |
+| 5  | **Process**      | `#process`    | 3 étapes métier (01, 02, 03) + image                                     |
+| 6  | **Projets**      | `#projects`   | Slider horizontal (AYA, YANOLA, AGRISEARCH, BASE64), pagination dots     |
+| 7  | **Témoignages**  | —             | Citation client, avatar, logos partenaires                               |
+| 8  | **CTA**          | —             | Titre + bouton "Commencer"                                               |
+| 9  | **Footer**       | `#contact`    | Infos, services, liens, contact, newsletter, copyright                   |
 
 ---
 
-## Données et personnalisation
+## Responsive
 
-- **Liens de navigation** : tableau `NAV_LINKS` en haut de `page.tsx`.
-- **Services** : tableau `SERVICES` (icône, titre, description).
-- **Étapes du process** : tableau `PROCESS_STEPS`.
-- **Images projets** : tableau `PROJECT_IMAGES` (URLs placehold ou chemins vers `public/`).
-- **Logos clients** : tableau `CLIENT_LOGOS`.
-- **Footer** : `FOOTER_SERVICES`, `FOOTER_LINKS` et texte de contact dans le JSX.
+Le site s'adapte à **5 breakpoints** pour couvrir tous les appareils :
 
-Pour changer couleurs ou espacements, modifier **`app/globals.css`** (variables `:root`) sans toucher au reste du code si tout utilise ces variables.
+| Breakpoint        | Largeur       | Appareils ciblés                              |
+|-------------------|---------------|-----------------------------------------------|
+| **xs**            | < 360px       | Petits mobiles (iPhone SE, Galaxy A01)         |
+| **mobile**        | 360 – 639px   | Mobiles standard (iPhone, Galaxy, Pixel)       |
+| **sm** (tablette) | 640 – 767px   | Grands mobiles, petites tablettes              |
+| **md**            | 768 – 1023px  | Tablettes (iPad, Galaxy Tab)                   |
+| **lg+**           | 1024px+       | Desktop, grands écrans                         |
+
+### Adaptations par breakpoint
+
+- **< 360px** : navbar compacte, titre hero `text-xl`, cartes projets 260px, padding réduit, logo 28px
+- **360 – 639px** : titre `text-2xl`, cartes 280px, espacement standard mobile
+- **640 – 767px** : grilles à 2 colonnes (services, team), boutons côte à côte
+- **768 – 1023px** : navigation desktop visible, recherche affichée
+- **1024px+** : grilles 2 colonnes complètes, cartes 320px, espacement large
+
+### Gestion des encoches (notch)
+
+- `viewport-fit: cover` activé via metadata
+- `env(safe-area-inset-*)` appliqué sur le body et le footer
+- Navbar : `paddingTop` calculé avec `max(0.5rem, env(safe-area-inset-top))`
+
+---
+
+## Animations
+
+Chaque section apparaît avec une animation **fade-up** déclenchée au scroll via `IntersectionObserver`.
+
+| Composant          | Animation          | Délai     |
+|--------------------|--------------------|-----------|
+| `AnimateOnScroll`  | fade-up (28px → 0) | 0 – 200ms |
+
+- Seuil de déclenchement : 10% de l'élément visible
+- Éléments en cascade dans la même section via le paramètre `delay`
+- Respecte `prefers-reduced-motion` du navigateur (via Tailwind)
+
+---
+
+## Personnalisation
+
+### Données
+
+Toutes les données sont définies dans des constantes en haut de `app/page.tsx` :
+
+| Constante          | Contenu                              |
+|---------------------|--------------------------------------|
+| `NAV_LINKS`         | Liens de navigation (label + href)   |
+| `SERVICES`          | Cartes services (icône, titre, desc) |
+| `TEAM_FEATURES`     | Points forts de l'équipe             |
+| `PROCESS_STEPS`     | Étapes du processus métier           |
+| `PROJECT_SLIDES`    | Projets du slider (image, titre)     |
+| `CLIENT_LOGOS`      | Noms des partenaires                 |
+| `FOOTER_SERVICES`   | Liste services footer                |
+| `FOOTER_LINKS`      | Liens utiles footer                  |
+
+### Changer la couleur principale
+
+Modifier `--color-brand-primary` dans `app/globals.css`. Les variables dérivées (`--color-text-heading`, `--color-footer-bg`, `--color-button-primary-bg`) utilisent la même valeur par défaut.
 
 ---
 
 ## Images
 
-- **Next.js Image** : utilisé pour les photos (hero, team, process, témoignage). Les domaines autorisés sont dans `next.config.ts` (`images.remotePatterns`) : `images.unsplash.com`, `placehold.co`.
-- Images locales : à placer dans **`public/`** et référencer par `/nom-fichier.jpg`.
-
----
-
-## Figma
-
-- Design source : [Figma – Sans-titre](https://www.figma.com/design/2m4fR22RYZYyMPmBO5zHNG/Sans-titre?node-id=3-2&m=dev).
-- La page correspond au frame **node-id=3-2** (maquette complète one-page).
-
----
-
-## Technologies
-
-- **Next.js 16** (App Router)
-- **React 19**
-- **TypeScript 5**
-- **Tailwind CSS 4** (via `@tailwindcss/postcss`)
-- **ESLint** (config Next.js)
+- **Composant** : `next/image` pour l'optimisation automatique
+- **Domaines autorisés** (dans `next.config.ts`) : `images.unsplash.com`, `placehold.co`
+- **Logo** : `public/nodes png.png`
+- **Images locales** : placer dans `public/` et référencer via `/nom-fichier.ext`
 
 ---
 
 ## Licence
 
-Projet privé.
+Projet privé — Nodes Technologie, Brazzaville, Congo.
