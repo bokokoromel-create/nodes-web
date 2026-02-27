@@ -216,14 +216,14 @@ export default function Home() {
       {/* Hero */}
       <section id="hero" className="relative min-h-[100svh] min-h-screen flex items-center pt-20 min-[360px]:pt-24 pb-10 min-[360px]:pb-12 sm:pt-28 sm:pb-16 lg:pt-0 lg:pb-0">
         <div className="absolute inset-0">
-          <Image
+        <Image
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=85"
             alt="Équipe en collaboration"
             fill
             className="object-cover object-center"
             sizes="100vw"
-            priority
-          />
+          priority
+        />
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -246,7 +246,7 @@ export default function Home() {
                 <span className="absolute left-0 right-0 bottom-0.5 h-1 rounded-full bg-[var(--color-brand-primary)]" aria-hidden />
               </span>{" "}
               des gens plus simple et meilleure.
-            </h1>
+          </h1>
             <div className="w-10 min-[360px]:w-12 sm:w-16 h-0.5 mt-3 mb-3 min-[360px]:mt-4 min-[360px]:mb-4 sm:mt-5 sm:mb-5 rounded-full bg-[var(--color-brand-primary)]" aria-hidden />
             <p className="text-white/85 mb-4 min-[360px]:mb-6 sm:mb-8 max-w-lg leading-relaxed text-xs min-[360px]:text-sm sm:text-base" style={{ fontFamily: "var(--font-family-sans)" }}>
               Spécialistes en intelligence artificielle et automatisation, nous aidons les leaders à construire des équipes à fort impact. Notre mission : repousser les frontières de l&apos;innovation technologique.
@@ -594,7 +594,7 @@ export default function Home() {
             <a href="#" className="hover:text-white transition-colors">Mentions légales</a>
             <a href="#" className="hover:text-white transition-colors">Politique de confidentialité</a>
           </div>
-        </div>
+    </div>
       </footer>
     </>
   );

@@ -1,216 +1,209 @@
-# Nodes Technologie
+# 🚀 Nodes Technologie
 
-> Site vitrine one-page de **Nodes Technologie** — entreprise congolaise (Brazzaville) spécialisée en intelligence artificielle et automatisation.
+**Site vitrine moderne pour une startup congolaise spécialisée en intelligence artificielle et automatisation.**
 
-**Stack** : Next.js 16 &bull; React 19 &bull; TypeScript 5 &bull; Tailwind CSS 4
+[![Next.js](https://img.shields.io/badge/Next.js-16.1-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss)](https://tailwindcss.com/)
 
-**Production** : [nodes-web](https://github.com/bokokoromel-create/nodes-web)
+> Application one-page performante, responsive et animée — conçue pour présenter les services, projets et l'identité de Nodes Technologie (Brazzaville, Congo).
 
----
-
-## Sommaire
-
-- [Prérequis](#prérequis)
-- [Installation](#installation)
-- [Scripts](#scripts)
-- [Architecture](#architecture)
-- [Design system](#design-system)
-- [Sections](#sections)
-- [Responsive](#responsive)
-- [Animations](#animations)
-- [Personnalisation](#personnalisation)
-- [Images](#images)
-- [Licence](#licence)
+🔗 **Dépôt** : [github.com/bokokoromel-create/nodes-web](https://github.com/bokokoromel-create/nodes-web)
 
 ---
 
-## Prérequis
+## 📋 Sommaire
 
-| Outil    | Version minimale |
-|----------|-----------------|
-| Node.js  | 18+             |
-| npm      | 9+ (ou yarn / pnpm) |
+- [Aperçu](#-aperçu)
+- [Fonctionnalités](#-fonctionnalités)
+- [Technologies](#-technologies)
+- [Installation](#-installation)
+- [Utilisation](#-utilisation)
+- [Architecture](#-architecture)
+- [Ce que j'ai appris](#-ce-que-jai-appris)
+- [Améliorations futures](#-améliorations-futures)
+- [Auteur / Contact](#-auteur--contact)
 
 ---
 
-## Installation
+## 🎯 Aperçu
+
+### Problème résolu
+
+Les entreprises tech africaines manquent souvent d'une vitrine web professionnelle qui reflète leur expertise. Ce projet offre à Nodes Technologie une présence digitale moderne, crédible et optimisée pour convertir les visiteurs en clients.
+
+### Public cible
+
+- Entreprises congolaises (télécoms, assurance, finance) recherchant des solutions IA
+- Partenaires potentiels et investisseurs
+- Candidats souhaitant rejoindre l'équipe
+
+### Points clés
+
+| Métrique | Détail |
+|----------|--------|
+| Type | Site vitrine one-page |
+| Langue | Français |
+| Responsive | Mobile, tablette, desktop |
+| Performance | SSR Next.js, images optimisées |
+| Accessibilité | Navigation clavier, ARIA labels |
+
+---
+
+## ✨ Fonctionnalités
+
+| Fonctionnalité | Description |
+|----------------|-------------|
+| 🧭 **Navbar glassmorphism** | Barre flottante avec effet de flou, menu burger mobile, navigation par ancres |
+| 🖼️ **Hero immersif** | Image plein écran avec overlay, titre animé, CTA |
+| 🤖 **Section services** | 4 cartes interactives (IA, Assistant Virtuel, Chatbot, Marketing) |
+| 👥 **Présentation équipe** | Photo + mission + points forts de l'entreprise |
+| 📊 **Processus métier** | 3 étapes numérotées avec layout image/texte |
+| 🎠 **Slider projets** | Carrousel horizontal avec snap, dots de pagination, navigation clavier |
+| 💬 **Témoignages** | Citation client + logos partenaires |
+| 📩 **Newsletter** | Formulaire d'inscription email dans le footer |
+| 🎬 **Animations au scroll** | Apparition progressive (fade-up) via IntersectionObserver |
+| 📱 **Responsive complet** | Adapté de 320px à 2560px+ (5 breakpoints) |
+
+---
+
+## 🛠️ Technologies
+
+| Technologie | Version | Rôle |
+|-------------|---------|------|
+| **Next.js** | 16.1 | Framework React (App Router, SSR, optimisation images) |
+| **React** | 19.2 | Composants UI, hooks (useState, useRef, useCallback, useEffect) |
+| **TypeScript** | 5 | Typage statique et sécurité du code |
+| **Tailwind CSS** | 4 | Utility-first CSS, responsive design |
+| **CSS Variables** | — | Design system centralisé (couleurs, typo, espacements) |
+| **IntersectionObserver** | API native | Animations déclenchées au scroll |
+| **ESLint** | 9 | Qualité et cohérence du code |
+
+---
+
+## 📦 Installation
+
+### Prérequis
+
+- **Node.js** 18+ 
+- **npm** 9+ (ou yarn / pnpm)
+
+### Étapes
 
 ```bash
+# 1. Cloner le dépôt
 git clone https://github.com/bokokoromel-create/nodes-web.git
+
+# 2. Accéder au dossier
 cd nodes-web
+
+# 3. Installer les dépendances
 npm install
+
+# 4. Lancer le serveur de développement
+npm run dev
 ```
 
----
-
-## Scripts
-
-| Commande          | Description                        |
-|-------------------|------------------------------------|
-| `npm run dev`     | Serveur de développement (port 3000) |
-| `npm run build`   | Build de production                |
-| `npm run start`   | Serveur de production              |
-| `npm run lint`    | Vérification ESLint                |
+L'application est accessible sur **http://localhost:3000**
 
 ---
 
-## Architecture
+## 🚀 Utilisation
+
+| Commande | Description |
+|----------|-------------|
+| `npm run dev` | Serveur de développement (port 3000, hot reload) |
+| `npm run build` | Build de production optimisé |
+| `npm run start` | Serveur de production |
+| `npm run lint` | Vérification ESLint |
+
+### Personnalisation rapide
+
+- **Couleur principale** : modifier `--color-brand-primary` dans `app/globals.css`
+- **Contenu** : modifier les constantes (`SERVICES`, `PROJECT_SLIDES`, etc.) dans `app/page.tsx`
+- **Logo** : remplacer `public/nodes png.png`
+
+---
+
+## 🏗️ Architecture
 
 ```
 nodes-web/
 ├── app/
-│   ├── globals.css        # Design tokens (variables CSS) + styles globaux
-│   ├── layout.tsx         # Layout racine, metadata, balise <html lang="fr">
-│   └── page.tsx           # Page unique : toutes les sections
+│   ├── globals.css          ← Design system (variables CSS, animations)
+│   ├── layout.tsx           ← Layout racine, metadata SEO, <html lang="fr">
+│   └── page.tsx             ← Page unique : composants + données
 ├── public/
-│   └── nodes png.png      # Logo Nodes Technologie
-├── next.config.ts         # Config Next.js (domaines images autorisés)
-├── postcss.config.mjs     # PostCSS + Tailwind
-├── tsconfig.json          # Configuration TypeScript
+│   └── nodes png.png        ← Logo de l'entreprise
+├── next.config.ts           ← Config Next.js (domaines images)
+├── postcss.config.mjs       ← PostCSS + Tailwind
+├── tsconfig.json            ← Configuration TypeScript
 ├── package.json
 └── README.md
 ```
 
-### Fichiers clés
+### Design system
 
-| Fichier             | Rôle                                                                 |
-|---------------------|----------------------------------------------------------------------|
-| `app/page.tsx`      | Composant principal : navbar, hero, services, team, process, projets, témoignages, CTA, footer |
-| `app/globals.css`   | Design system centralisé (couleurs, typo, espacements, animations)   |
-| `app/layout.tsx`    | Enveloppe HTML, langue FR, metadata SEO, viewport                    |
+Le projet utilise un **système de tokens CSS** centralisé dans `:root` pour garantir la cohérence visuelle :
 
----
+- **Couleurs** : palette complète (brand, texte, fonds, bordures, boutons)
+- **Typographie** : tailles fluides avec `clamp()` pour un rendu adaptatif
+- **Espacements** : padding responsive via `clamp()`
+- **Ombres** : ombres portées pour navbar, boutons, cartes
 
-## Design system
+### Responsive design
 
-Toutes les valeurs sont centralisées dans `app/globals.css` via des variables CSS (`:root`). Modifier une variable met à jour l'ensemble du site.
-
-### Palette
-
-| Variable                       | Valeur     | Usage                       |
-|--------------------------------|------------|-----------------------------|
-| `--color-brand-primary`        | `#1a005d`  | Accent principal            |
-| `--color-text-heading`         | `#1a005d`  | Titres                      |
-| `--color-text-body`            | `#2a2a3e`  | Texte courant               |
-| `--color-link-text`            | `#5a5a6e`  | Liens, texte secondaire     |
-| `--color-border-light`         | `#e0e2ee`  | Bordures, séparateurs       |
-| `--color-section-muted`        | `#f5f4fa`  | Fond sections claires       |
-| `--color-section-tint`         | `#ebe8f5`  | Fond sections teintées      |
-| `--color-footer-bg`            | `#1a005d`  | Fond footer                 |
-| `--color-button-primary-bg`    | `#1a005d`  | Boutons CTA                 |
-
-### Typographie
-
-| Variable                    | Valeur / Plage          |
-|-----------------------------|-------------------------|
-| `--font-family-sans`        | System UI sans-serif    |
-| `--font-size-heading-1`     | `clamp(2rem, 4vw, 3rem)` |
-| `--font-size-heading-2`     | `clamp(1.5rem, 3vw, 2.25rem)` |
-| `--font-size-heading-3`     | `clamp(1.125rem, 2vw, 1.5rem)` |
-| `--font-size-body`          | `1rem`                  |
-| `--font-size-small`         | `0.875rem`              |
-| `--font-weight-extrabold`   | `800`                   |
-
-### Espacements
-
-| Variable                | Valeur                         |
-|-------------------------|--------------------------------|
-| `--padding-section-x`  | `clamp(0.75rem, 3vw, 4rem)`   |
-| `--padding-section-y`  | `clamp(1.5rem, 4vw, 4rem)`    |
-| `--border-radius-button`| `0.5rem`                      |
+| Breakpoint | Largeur | Cible |
+|------------|---------|-------|
+| xs | < 360px | Petits mobiles (iPhone SE, Galaxy A01) |
+| mobile | 360 – 639px | Mobiles standard |
+| sm | 640 – 767px | Grands mobiles, petites tablettes |
+| md | 768 – 1023px | Tablettes (iPad, Galaxy Tab) |
+| lg+ | 1024px+ | Desktop |
 
 ---
 
-## Sections
+## 📚 Ce que j'ai appris
 
-| #  | Section          | ID            | Description                                                              |
-|----|------------------|---------------|--------------------------------------------------------------------------|
-| 1  | **Navbar**       | —             | Barre flottante glassmorphism, logo, navigation, CTA, menu mobile        |
-| 2  | **Hero**         | `#hero`       | Image plein écran + overlay, titre, tagline, CTA "Travailler avec Nodes" |
-| 3  | **Services**     | `#services`   | 4 cartes (IA, Assistant Virtuel, Chatbot, Marketing), bouton             |
-| 4  | **Équipe**       | `#story`      | Photo + texte mission, 4 points forts                                    |
-| 5  | **Process**      | `#process`    | 3 étapes métier (01, 02, 03) + image                                     |
-| 6  | **Projets**      | `#projects`   | Slider horizontal (AYA, YANOLA, AGRISEARCH, BASE64), pagination dots     |
-| 7  | **Témoignages**  | —             | Citation client, avatar, logos partenaires                               |
-| 8  | **CTA**          | —             | Titre + bouton "Commencer"                                               |
-| 9  | **Footer**       | `#contact`    | Infos, services, liens, contact, newsletter, copyright                   |
+Ce projet m'a permis de consolider et d'approfondir plusieurs compétences :
+
+- **Next.js App Router** : structure de projet moderne avec le nouveau système de routing et les Server Components
+- **Design system avec CSS Variables** : créer un système de tokens maintenable et cohérent sans librairie externe
+- **Responsive avancé** : gérer 5 breakpoints avec Tailwind CSS, y compris les breakpoints arbitraires (`min-[360px]`) pour les edge cases mobiles
+- **Animations performantes** : utiliser l'API IntersectionObserver pour déclencher des animations CSS uniquement lorsque les éléments sont visibles (performance optimisée)
+- **Accessibilité (a11y)** : intégrer les attributs ARIA, la navigation clavier et le support des encoches (`safe-area-inset`)
+- **Slider custom sans librairie** : construire un carrousel horizontal avec snap CSS, calcul dynamique des dimensions et gestion des événements scroll
+- **Tailwind CSS 4** : exploiter les nouvelles fonctionnalités de la dernière version majeure
 
 ---
 
-## Responsive
+## 🔮 Améliorations futures
 
-Le site s'adapte à **5 breakpoints** pour couvrir tous les appareils :
-
-| Breakpoint        | Largeur       | Appareils ciblés                              |
-|-------------------|---------------|-----------------------------------------------|
-| **xs**            | < 360px       | Petits mobiles (iPhone SE, Galaxy A01)         |
-| **mobile**        | 360 – 639px   | Mobiles standard (iPhone, Galaxy, Pixel)       |
-| **sm** (tablette) | 640 – 767px   | Grands mobiles, petites tablettes              |
-| **md**            | 768 – 1023px  | Tablettes (iPad, Galaxy Tab)                   |
-| **lg+**           | 1024px+       | Desktop, grands écrans                         |
-
-### Adaptations par breakpoint
-
-- **< 360px** : navbar compacte, titre hero `text-xl`, cartes projets 260px, padding réduit, logo 28px
-- **360 – 639px** : titre `text-2xl`, cartes 280px, espacement standard mobile
-- **640 – 767px** : grilles à 2 colonnes (services, team), boutons côte à côte
-- **768 – 1023px** : navigation desktop visible, recherche affichée
-- **1024px+** : grilles 2 colonnes complètes, cartes 320px, espacement large
-
-### Gestion des encoches (notch)
-
-- `viewport-fit: cover` activé via metadata
-- `env(safe-area-inset-*)` appliqué sur le body et le footer
-- Navbar : `paddingTop` calculé avec `max(0.5rem, env(safe-area-inset-top))`
+- [ ] Ajouter un **backend** (API routes Next.js) pour la newsletter et le formulaire de contact
+- [ ] Intégrer un **CMS headless** (Sanity / Strapi) pour gérer le contenu dynamiquement
+- [ ] Ajouter le **mode sombre** (dark mode) avec basculement automatique
+- [ ] Implémenter le **multi-langue** (français / anglais) avec next-intl
+- [ ] Ajouter des **tests** (Jest + Testing Library) pour les composants critiques
+- [ ] Mettre en place le **déploiement continu** (Vercel / GitHub Actions)
+- [ ] Remplacer les images placeholder par de **vraies captures** des projets (AYA, YANOLA, etc.)
+- [ ] Ajouter des **pages dédiées** pour chaque projet (routing dynamique)
 
 ---
 
-## Animations
+## 👤 Auteur / Contact
 
-Chaque section apparaît avec une animation **fade-up** déclenchée au scroll via `IntersectionObserver`.
+**Nodes Technologie** — Brazzaville, Congo
 
-| Composant          | Animation          | Délai     |
-|--------------------|--------------------|-----------|
-| `AnimateOnScroll`  | fade-up (28px → 0) | 0 – 200ms |
-
-- Seuil de déclenchement : 10% de l'élément visible
-- Éléments en cascade dans la même section via le paramètre `delay`
-- Respecte `prefers-reduced-motion` du navigateur (via Tailwind)
-
----
-
-## Personnalisation
-
-### Données
-
-Toutes les données sont définies dans des constantes en haut de `app/page.tsx` :
-
-| Constante          | Contenu                              |
-|---------------------|--------------------------------------|
-| `NAV_LINKS`         | Liens de navigation (label + href)   |
-| `SERVICES`          | Cartes services (icône, titre, desc) |
-| `TEAM_FEATURES`     | Points forts de l'équipe             |
-| `PROCESS_STEPS`     | Étapes du processus métier           |
-| `PROJECT_SLIDES`    | Projets du slider (image, titre)     |
-| `CLIENT_LOGOS`      | Noms des partenaires                 |
-| `FOOTER_SERVICES`   | Liste services footer                |
-| `FOOTER_LINKS`      | Liens utiles footer                  |
-
-### Changer la couleur principale
-
-Modifier `--color-brand-primary` dans `app/globals.css`. Les variables dérivées (`--color-text-heading`, `--color-footer-bg`, `--color-button-primary-bg`) utilisent la même valeur par défaut.
+| Canal | Lien |
+|-------|------|
+| 📧 Email | [hello@nodestechnologie.com](mailto:hello@nodestechnologie.com) |
+| 💼 LinkedIn | [Nodes Technology](https://cg.linkedin.com/company/nodes-technology) |
+| 🐙 GitHub | [bokokoromel-create](https://github.com/bokokoromel-create) |
+| 📞 Téléphone | +242 06 529 05 97 / +242 05 659 11 59 |
 
 ---
 
-## Images
-
-- **Composant** : `next/image` pour l'optimisation automatique
-- **Domaines autorisés** (dans `next.config.ts`) : `images.unsplash.com`, `placehold.co`
-- **Logo** : `public/nodes png.png`
-- **Images locales** : placer dans `public/` et référencer via `/nom-fichier.ext`
-
----
-
-## Licence
-
-Projet privé — Nodes Technologie, Brazzaville, Congo.
+<p align="center">
+  <sub>Fait avec ❤️ à Brazzaville — © 2023 Nodes Technologie. Tous droits réservés.</sub>
+</p>
