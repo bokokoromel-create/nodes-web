@@ -121,7 +121,7 @@ export default function FormulairePage() {
 
   return (
     <div
-      className="min-h-screen py-12 px-4 sm:px-6 lg:px-8"
+      className="min-h-screen min-h-[100dvh] py-8 min-[360px]:py-10 sm:py-12 px-3 min-[280px]:px-4 sm:px-6 lg:px-8"
       style={{ backgroundColor: "var(--color-section-muted)" }}
     >
       <div className="mx-auto max-w-xl">
@@ -137,11 +137,11 @@ export default function FormulairePage() {
         </Link>
 
         <div
-          className="rounded-2xl bg-white p-6 sm:p-8 shadow-sm"
+          className="rounded-xl min-[360px]:rounded-2xl bg-white p-4 min-[280px]:p-5 min-[360px]:p-6 sm:p-8 shadow-sm"
           style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}
         >
           <h1
-            className="text-xl sm:text-2xl font-[var(--font-weight-extrabold)] text-[var(--color-text-heading)] mb-2"
+            className="text-lg min-[280px]:text-xl sm:text-2xl font-[var(--font-weight-extrabold)] text-[var(--color-text-heading)] mb-2"
             style={{ fontFamily: "var(--font-family-sans)" }}
           >
             Formulaire

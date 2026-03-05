@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import MetaMaskErrorSuppress from "@/components/MetaMaskErrorSuppress";
 
 export const metadata: Metadata = {
   title: "Nodes Technologie | L'intelligence artificielle à votre service",
@@ -14,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <MetaMaskErrorSuppress />
+        {children}
+      </body>
     </html>
   );
 }

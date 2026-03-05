@@ -1,4 +1,4 @@
-# 🚀 Nodes Technologie
+# 🚀 Nodes Technology
 
 **Site vitrine moderne pour une startup congolaise spécialisée en intelligence artificielle et automatisation.**
 
@@ -7,7 +7,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss)](https://tailwindcss.com/)
 
-> Application one-page performante, responsive et animée — conçue pour présenter les services, projets et l'identité de Nodes Technologie (Brazzaville, Congo).
+> Application one-page performante, responsive et animée — conçue pour présenter les services et l'identité de Nodes Technology (Brazzaville, Congo).
 
 🔗 **Dépôt** : [github.com/bokokoromel-create/nodes-web](https://github.com/bokokoromel-create/nodes-web)
 
@@ -32,7 +32,7 @@
 
 ### Problème résolu
 
-Les entreprises tech africaines manquent souvent d'une vitrine web professionnelle qui reflète leur expertise. Ce projet offre à Nodes Technologie une présence digitale moderne, crédible et optimisée pour convertir les visiteurs en clients.
+Les entreprises tech africaines manquent souvent d'une vitrine web professionnelle qui reflète leur expertise. Ce projet offre à Nodes Technology une présence digitale moderne, crédible et optimisée pour convertir les visiteurs en clients.
 
 ### Public cible
 
@@ -56,17 +56,17 @@ Les entreprises tech africaines manquent souvent d'une vitrine web professionnel
 
 | Fonctionnalité | Description |
 |----------------|-------------|
-| 🧭 **Navbar glassmorphism** | Barre flottante avec effet de flou, menu burger mobile, navigation par ancres |
-| 🖼️ **Hero immersif** | Image plein écran avec overlay, titre animé, CTA |
-| 🤖 **Section services** | 4 cartes interactives (IA, Assistant Virtuel, Chatbot, Marketing) |
-| 👥 **Présentation équipe** | Photo + mission + points forts de l'entreprise |
-| 📊 **Processus métier** | 3 étapes numérotées avec layout image/texte |
-| 🎠 **Slider projets** | Carrousel horizontal avec snap, dots de pagination, navigation clavier |
-| 💬 **Témoignages** | Citation client + logos partenaires |
-| 📝 **Formulaire de contact** | Page dédiée avec envoi des données vers WhatsApp via API |
-| 🛡️ **Dashboard admin** | Interface d'administration (stats, graphiques, déconnexion) |
+| 🧭 **Navbar glassmorphism** | Barre flottante avec effet de flou, menu burger mobile, navigation par ancres (Accueil, Services, Contact) |
+| 🖼️ **Hero immersif** | Image plein écran avec overlay, titre animé, boutons CTA « Travailler avec Nodes » et « Lire notre histoire » |
+| 🤖 **Section services** | 4 cartes (Développement IA, Transformation digitale, Marketing de précision, Travail d'équipe) + lien vers formulaire |
+| 👥 **Présentation équipe** | Photo, mission, points forts (Développement IA, Travail d'équipe, Transformation digitale, Excellence technique) |
+| 📊 **Processus métier** | 3 étapes : Analyse et conception, Développement et intégration, Déploiement et amélioration continue |
+| 🤝 **Partenaires** | Logos NSIA, Airtel, Canal, CARIA, BASE64, MTN |
+| 📝 **Formulaire de contact** | Page `/formulaire` avec validation, envoi vers WhatsApp via API Flow |
+| 🛡️ **Dashboard admin** | Interface `/admin` (stats, graphiques, déconnexion) |
 | 🎬 **Animations au scroll** | Apparition progressive (fade-up) via IntersectionObserver |
-| 📱 **Responsive complet** | Adapté de 320px à 2560px+ (5 breakpoints) |
+| 📱 **Responsive complet** | Adapté de 320px à 2560px+ |
+| 🔗 **Réseaux sociaux** | Liens LinkedIn, Instagram, Facebook dans le footer |
 
 ---
 
@@ -75,7 +75,7 @@ Les entreprises tech africaines manquent souvent d'une vitrine web professionnel
 | Technologie | Version | Rôle |
 |-------------|---------|------|
 | **Next.js** | 16.1 | Framework React (App Router, SSR, optimisation images) |
-| **React** | 19.2 | Composants UI, hooks (useState, useRef, useCallback, useEffect) |
+| **React** | 19.2 | Composants UI, hooks (useState, useRef, useEffect) |
 | **TypeScript** | 5 | Typage statique et sécurité du code |
 | **Tailwind CSS** | 4 | Utility-first CSS, responsive design |
 | **Zod** | — | Validation des schémas (API) |
@@ -90,7 +90,7 @@ Les entreprises tech africaines manquent souvent d'une vitrine web professionnel
 
 ### Prérequis
 
-- **Node.js** 18+ 
+- **Node.js** 18+
 - **npm** 9+ (ou yarn / pnpm)
 
 ### Étapes
@@ -129,8 +129,9 @@ L'application est accessible sur **http://localhost:3000**
 ### Personnalisation rapide
 
 - **Couleur principale** : modifier `--color-brand-primary` dans `app/globals.css`
-- **Contenu** : modifier les constantes (`SERVICES`, `PROJECT_SLIDES`, etc.) dans `app/page.tsx`
+- **Contenu** : modifier les constantes (`SERVICES`, `PROCESS_STEPS`, `FOOTER_SERVICES`, etc.) dans `app/page.tsx`
 - **Logo** : remplacer `public/nodes png.png`
+- **Images** : `ia.jpg` (équipe), `pr2.jpg` (processus), logos partenaires dans `public/`
 - **API WhatsApp** : configurer `FLOW_API_KEY` dans `.env.local`
 
 ---
@@ -147,7 +148,7 @@ nodes-web/
 │   │   ├── layout.tsx       ← Layout admin (sidebar)
 │   │   └── page.tsx         ← Dashboard (graphiques, stats)
 │   ├── formulaire/
-│   │   └── page.tsx         ← Formulaire de contact (name, phone, objet)
+│   │   └── page.tsx         ← Formulaire de contact (nom, téléphone, objet)
 │   ├── globals.css          ← Design system (variables CSS, animations)
 │   ├── layout.tsx           ← Layout racine, metadata SEO
 │   └── page.tsx             ← Page d'accueil one-page
@@ -158,7 +159,10 @@ nodes-web/
 ├── lib/
 │   └── rate-limit.ts        ← Rate limiting in-memory (5 req/min par IP)
 ├── public/
-│   └── nodes png.png        ← Logo de l'entreprise
+│   ├── nodes png.png        ← Logo de l'entreprise
+│   ├── ia.jpg               ← Photo section équipe
+│   ├── pr2.jpg              ← Image processus métier
+│   └── *.png, *.jpg         ← Logos partenaires (NSIA, Airtel, etc.)
 ├── .env.example             ← Variables d'environnement (FLOW_API_KEY)
 ├── next.config.ts
 ├── postcss.config.mjs
@@ -169,10 +173,10 @@ nodes-web/
 
 ### Design system
 
-Le projet utilise un **système de tokens CSS** centralisé dans `:root` pour garantir la cohérence visuelle :
+Le projet utilise un **système de tokens CSS** centralisé dans `:root` :
 
 - **Couleurs** : palette complète (brand, texte, fonds, bordures, boutons)
-- **Typographie** : tailles fluides avec `clamp()` pour un rendu adaptatif
+- **Typographie** : tailles fluides avec `clamp()`
 - **Espacements** : padding responsive via `clamp()`
 - **Ombres** : ombres portées pour navbar, boutons, cartes
 
@@ -180,10 +184,10 @@ Le projet utilise un **système de tokens CSS** centralisé dans `:root` pour ga
 
 | Breakpoint | Largeur | Cible |
 |------------|---------|-------|
-| xs | < 360px | Petits mobiles (iPhone SE, Galaxy A01) |
+| xs | < 360px | Petits mobiles |
 | mobile | 360 – 639px | Mobiles standard |
-| sm | 640 – 767px | Grands mobiles, petites tablettes |
-| md | 768 – 1023px | Tablettes (iPad, Galaxy Tab) |
+| sm | 640 – 767px | Grands mobiles |
+| md | 768 – 1023px | Tablettes |
 | lg+ | 1024px+ | Desktop |
 
 ---
@@ -202,16 +206,6 @@ Envoie les données du formulaire vers WhatsApp via l'API Flow.
 | `phone` | string | min 8 caractères | Oui         |
 | `objet` | string | —                | Oui         |
 
-L'`orderId` est généré automatiquement côté serveur (format `NODES-{timestamp}`).
-
-#### Exemple de requête
-
-```bash
-curl -X POST http://localhost:3000/api/contact \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Jean Dupont","phone":"+24206123456","objet":"Demande de devis"}'
-```
-
 #### Réponses
 
 | Code | Description                          |
@@ -221,69 +215,52 @@ curl -X POST http://localhost:3000/api/contact \
 | 429  | Trop de requêtes (rate limit)        |
 | 500  | Erreur serveur ou clé API manquante  |
 
-#### Validation (Zod)
-
-- **name** : minimum 2 caractères
-- **phone** : minimum 8 caractères
-- **objet** : chaîne non vide
-
 #### Rate limiting
 
 - **Limite** : 5 requêtes par minute par IP
-- **Réponse 429** : `{ "error": "...", "retryAfter": 45 }`
-- **Headers** : `Retry-After`, `X-RateLimit-Remaining`
-
-#### Variables d'environnement
-
-| Variable     | Description                    |
-|--------------|--------------------------------|
-| `FLOW_API_KEY` | Clé API Flow (WhatsApp) — côté serveur uniquement |
-
-Voir `.env.example` pour le modèle.
+- **Variables** : `FLOW_API_KEY` dans `.env.local` (voir `.env.example`)
 
 ---
 
 ## 📚 Ce que j'ai appris
 
-Ce projet m'a permis de consolider et d'approfondir plusieurs compétences :
-
-- **Next.js App Router** : structure de projet moderne avec le nouveau système de routing et les Server Components
-- **Design system avec CSS Variables** : créer un système de tokens maintenable et cohérent sans librairie externe
-- **Responsive avancé** : gérer 5 breakpoints avec Tailwind CSS, y compris les breakpoints arbitraires (`min-[360px]`) pour les edge cases mobiles
-- **Animations performantes** : utiliser l'API IntersectionObserver pour déclencher des animations CSS uniquement lorsque les éléments sont visibles (performance optimisée)
-- **Accessibilité (a11y)** : intégrer les attributs ARIA, la navigation clavier et le support des encoches (`safe-area-inset`)
-- **Slider custom sans librairie** : construire un carrousel horizontal avec snap CSS, calcul dynamique des dimensions et gestion des événements scroll
-- **Tailwind CSS 4** : exploiter les nouvelles fonctionnalités de la dernière version majeure
-- **API Routes Next.js** : validation avec Zod, rate limiting, envoi vers API externe
+- **Next.js App Router** : structure moderne avec App Router et Server Components
+- **Design system avec CSS Variables** : tokens maintenables
+- **Responsive avancé** : breakpoints Tailwind (dont `min-[360px]`)
+- **Animations performantes** : IntersectionObserver + CSS
+- **Accessibilité** : ARIA, navigation clavier, safe-area-inset
+- **API Routes** : validation Zod, rate limiting, envoi API externe
+- **Tailwind CSS 4** : nouvelles fonctionnalités
 
 ---
 
 ## 🔮 Améliorations futures
 
-- [x] ~~Ajouter un backend (API routes) pour le formulaire de contact~~
-- [ ] Intégrer un **CMS headless** (Sanity / Strapi) pour gérer le contenu dynamiquement
-- [ ] Ajouter le **mode sombre** (dark mode) avec basculement automatique
-- [ ] Implémenter le **multi-langue** (français / anglais) avec next-intl
-- [ ] Ajouter des **tests** (Jest + Testing Library) pour les composants critiques
-- [ ] Mettre en place le **déploiement continu** (Vercel / GitHub Actions)
-- [ ] Remplacer les images placeholder par de **vraies captures** des projets (AYA, YANOLA, etc.)
-- [ ] Ajouter des **pages dédiées** pour chaque projet (routing dynamique)
+- [x] ~~Backend (API routes) pour le formulaire de contact~~
+- [ ] **CMS headless** (Sanity / Strapi) pour contenu dynamique
+- [ ] **Mode sombre** (dark mode)
+- [ ] **Multi-langue** (français / anglais)
+- [ ] **Tests** (Jest + Testing Library)
+- [ ] **Déploiement continu** (Vercel / GitHub Actions)
+- [ ] Pages **Mentions légales** et **Politique de confidentialité**
 
 ---
 
 ## 👤 Auteur / Contact
 
-**Nodes Technologie** — Brazzaville, Congo
+**Nodes Technology** — Brazzaville, République du Congo
 
 | Canal | Lien |
 |-------|------|
-| 📧 Email | [hello@nodestechnologie.com](mailto:hello@nodestechnologie.com) |
+| 📧 Email | [support@nodes-hub.com](mailto:support@nodes-hub.com) |
 | 💼 LinkedIn | [Nodes Technology](https://cg.linkedin.com/company/nodes-technology) |
+| 📷 Instagram | [nodes.technology](https://www.instagram.com/nodes.technology) |
+| 📘 Facebook | [Nodes Technology](https://www.facebook.com/share/18KURY3nja/) |
 | 🐙 GitHub | [bokokoromel-create](https://github.com/bokokoromel-create) |
 | 📞 Téléphone | +242 06 529 05 97 / +242 05 659 11 59 |
 
 ---
 
 <p align="center">
-  <sub>Fait avec ❤️ à Brazzaville — © 2023 Nodes Technologie. Tous droits réservés.</sub>
+  <sub>Fait avec ❤️ à Brazzaville — © 2026 Nodes Technology. Tous droits réservés.</sub>
 </p>
