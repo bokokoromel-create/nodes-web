@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 const initialFormData = {
   name: "",
@@ -37,10 +38,17 @@ function validateForm(data: typeof initialFormData): FieldErrors {
 }
 
 export default function FormulairePage() {
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState(initialFormData);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+
+  useEffect(() => {
+    const objet = searchParams.get("objet");
+    if (!objet) return;
+    setFormData((prev) => ({ ...prev, objet }));
+  }, [searchParams]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

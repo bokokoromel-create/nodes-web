@@ -33,6 +33,7 @@ function AnimateOnScroll({ children, className = "", delay = 0 }: { children: Re
 const NAV_LINKS = [
   { label: "Accueil", href: "#hero" },
   { label: "Services", href: "#services" },
+  { label: "Formation", href: "#formation" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -247,6 +248,137 @@ export default function Home() {
                 <p className="text-[var(--color-text-body)] text-[var(--font-size-small)]" style={{ fontFamily: "var(--font-family-sans)" }}>{s.desc}</p>
               </div>
             ))}
+          </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      <section id="formation" className="py-[var(--padding-section-y)] px-[var(--padding-section-x)]" style={{ background: "var(--color-background-white)" }}>
+        <div className="max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-6 min-[360px]:gap-8 sm:gap-12 items-center">
+          <AnimateOnScroll>
+          <div>
+            <p className="text-[var(--color-brand-primary)] font-[var(--font-weight-medium)] text-sm mb-3" style={{ fontFamily: "var(--font-family-sans)" }}>
+              Formations
+            </p>
+            <h2 className="font-[var(--font-weight-extrabold)] text-[var(--color-text-heading)] mb-4" style={{ fontFamily: "var(--font-family-sans)", fontSize: "var(--font-size-heading-2)" }}>
+              Apprenez l&apos;IA et l&apos;automatisation avec Nodes
+            </h2>
+            <p className="text-[var(--color-text-body)] mb-6 max-w-xl text-sm sm:text-base" style={{ fontFamily: "var(--font-family-sans)" }}>
+              Nous proposons des formations pratiques, adaptées au contexte local, pour développer des compétences immédiatement applicables en entreprise.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Link
+                href="/formulaire"
+                className="inline-flex items-center justify-center rounded-[var(--border-radius-button)] px-5 py-3 text-white font-[var(--font-weight-medium)] transition-colors hover:opacity-90"
+                style={{ backgroundColor: "var(--color-button-primary-bg)", fontFamily: "var(--font-family-sans)" }}
+              >
+                Demander une formation
+              </Link>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-[var(--border-radius-button)] px-5 py-3 border border-[var(--color-border-light)] bg-white text-[var(--color-text-heading)] font-[var(--font-weight-medium)] transition-colors hover:bg-[var(--color-section-tint)]"
+                style={{ fontFamily: "var(--font-family-sans)" }}
+              >
+                Nous contacter
+              </a>
+            </div>
+          </div>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll delay={150}>
+          <div className="grid grid-cols-1 min-[400px]:grid-cols-2 gap-3 min-[360px]:gap-4 sm:gap-6">
+            <article className="rounded-2xl bg-white shadow-sm border border-[var(--color-border-light)] overflow-hidden flex flex-col">
+              <div className="relative aspect-[16/10]">
+                <Image src="/DATA.jpg" alt="Formation DATA MASTER" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                <span
+                  className="absolute top-3 left-3 inline-flex items-center rounded-full px-3 py-1 text-xs font-[var(--font-weight-bold)] shadow-sm border border-white/25 text-white"
+                  style={{ backgroundColor: "rgba(255,255,255,0.16)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", fontFamily: "var(--font-family-sans)" }}
+                >
+                  Disponible
+                </span>
+              </div>
+              <div className="p-5 sm:p-6 flex flex-col gap-3">
+                <p className="text-[var(--color-brand-primary)] text-xs font-[var(--font-weight-bold)] uppercase tracking-[var(--letter-spacing-expanded)]" style={{ fontFamily: "var(--font-family-sans)" }}>
+                  DATA
+                </p>
+                <h3 className="font-[var(--font-weight-extrabold)] text-[var(--color-text-heading)] leading-tight" style={{ fontFamily: "var(--font-family-sans)", fontSize: "var(--font-size-heading-3)" }}>
+                  DATA MASTER
+                </h3>
+                <ul className="mt-1 space-y-2 text-sm text-[var(--color-text-body)]" style={{ fontFamily: "var(--font-family-sans)" }}>
+                  <li className="flex items-center gap-2">
+                    <svg className="shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5Z" /><path d="M6 12v6c3 2 9 2 12 0v-6" /></svg>
+                    Parcours certifiant
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <svg className="shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4" /><path d="M8 2v4" /><path d="M3 10h18" /></svg>
+                    Durée : 6 semaines
+                  </li>
+                </ul>
+
+                <div className="pt-2 mt-auto">
+                  <Link
+                    href="/formations/data-master"
+                    className="inline-flex items-center justify-center w-full rounded-[var(--border-radius-button)] px-4 py-2.5 text-white text-sm font-[var(--font-weight-bold)] transition-colors hover:opacity-90"
+                    style={{ backgroundColor: "var(--color-button-primary-bg)", fontFamily: "var(--font-family-sans)" }}
+                  >
+                    En savoir plus
+                  </Link>
+                </div>
+              </div>
+            </article>
+
+            <article className="rounded-2xl bg-white shadow-sm border border-[var(--color-border-light)] overflow-hidden flex flex-col">
+              <div className="relative aspect-[16/10]">
+                <Image src="/IA2.jpg" alt="Formation IA MASTER" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                <span
+                  className="absolute top-3 left-3 inline-flex items-center rounded-full px-3 py-1 text-xs font-[var(--font-weight-bold)] shadow-sm border border-white/25 text-white"
+                  style={{ backgroundColor: "rgba(255,255,255,0.16)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", fontFamily: "var(--font-family-sans)" }}
+                >
+                  Disponible
+                </span>
+              </div>
+              <div className="p-5 sm:p-6 flex flex-col gap-3">
+                <p className="text-[var(--color-brand-primary)] text-xs font-[var(--font-weight-bold)] uppercase tracking-[var(--letter-spacing-expanded)]" style={{ fontFamily: "var(--font-family-sans)" }}>
+                  IA
+                </p>
+                <h3 className="font-[var(--font-weight-extrabold)] text-[var(--color-text-heading)] leading-tight" style={{ fontFamily: "var(--font-family-sans)", fontSize: "var(--font-size-heading-3)" }}>
+                  IA MASTER
+                </h3>
+                <ul className="mt-1 space-y-2 text-sm text-[var(--color-text-body)]" style={{ fontFamily: "var(--font-family-sans)" }}>
+                  <li className="flex items-center gap-2">
+                    <svg className="shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a4 4 0 0 0-4 4v3a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4Z" /><path d="M6 10v1a6 6 0 0 0 12 0v-1" /><path d="M12 17v5" /></svg>
+                    Multimodal, agents & MCP
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <svg className="shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4" /><path d="M8 2v4" /><path d="M3 10h18" /></svg>
+                    Durée : 6 semaines
+                  </li>
+                </ul>
+
+                <div className="pt-2 mt-auto">
+                  <Link
+                    href="/formations/ia-master"
+                    className="inline-flex items-center justify-center w-full rounded-[var(--border-radius-button)] px-4 py-2.5 text-white text-sm font-[var(--font-weight-bold)] transition-colors hover:opacity-90"
+                    style={{ backgroundColor: "var(--color-button-primary-bg)", fontFamily: "var(--font-family-sans)" }}
+                  >
+                    En savoir plus
+                  </Link>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div className="flex justify-end mt-4 sm:mt-5">
+            <Link
+              href="/formations"
+              className="group inline-flex items-center justify-center gap-3 rounded-[var(--border-radius-button)] px-6 py-3 sm:px-7 sm:py-3.5 text-white font-[var(--font-weight-bold)] text-sm sm:text-base shadow-[0_10px_30px_rgba(26,0,93,0.25)] hover:shadow-[0_14px_38px_rgba(26,0,93,0.32)] hover:translate-y-[-1px] active:translate-y-0 transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[var(--color-button-primary-bg)]"
+              style={{ backgroundColor: "var(--color-button-primary-bg)", fontFamily: "var(--font-family-sans)" }}
+              aria-label="Voir toutes les formations"
+            >
+              Voir toutes les formations
+              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/15 group-hover:bg-white/20 transition-colors">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="M12 5l7 7-7 7" /></svg>
+              </span>
+            </Link>
           </div>
           </AnimateOnScroll>
         </div>

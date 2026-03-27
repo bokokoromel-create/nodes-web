@@ -84,6 +84,7 @@ body {
 /* Marge de scroll – adapté selon hauteur navbar (280px → 4K) */
 [id="hero"],
 [id="services"],
+[id="formation"],
 [id="story"],
 [id="process"],
 [id="projects"],
@@ -93,6 +94,7 @@ body {
 @media (min-width: 360px) {
   [id="hero"],
   [id="services"],
+  [id="formation"],
   [id="story"],
   [id="process"],
   [id="projects"],
@@ -103,6 +105,7 @@ body {
 @media (min-width: 640px) {
   [id="hero"],
   [id="services"],
+  [id="formation"],
   [id="story"],
   [id="process"],
   [id="projects"],
@@ -113,6 +116,7 @@ body {
 @media (min-width: 768px) {
   [id="hero"],
   [id="services"],
+  [id="formation"],
   [id="story"],
   [id="process"],
   [id="projects"],
@@ -123,6 +127,7 @@ body {
 @media (min-width: 1024px) {
   [id="hero"],
   [id="services"],
+  [id="formation"],
   [id="story"],
   [id="process"],
   [id="projects"],
