@@ -184,7 +184,7 @@ export default function Home() {
               style={{ fontFamily: "var(--font-family-sans)" }}
             >
               Nous concevons des solutions intelligentes qui automatisent et transforment votre business.
-            </h1>
+          </h1>
             <div className="w-10 min-[360px]:w-12 sm:w-16 h-0.5 mt-3 mb-3 min-[360px]:mt-4 min-[360px]:mb-4 sm:mt-5 sm:mb-5 rounded-full bg-[var(--color-brand-primary)]" aria-hidden />
             <p className="text-white/85 mb-3 min-[280px]:mb-4 min-[360px]:mb-6 sm:mb-8 max-w-lg leading-relaxed text-xs min-[280px]:text-[13px] min-[360px]:text-sm sm:text-base" style={{ fontFamily: "var(--font-family-sans)" }}>
               Experts en intelligence artificielle et en transformation digitale, nous aidons les entreprises à gagner du temps, réduire leurs coûts et créer de nouvelles opportunités grâce à la technologie.
@@ -287,9 +287,9 @@ export default function Home() {
 
           <AnimateOnScroll delay={150}>
           <div className="grid grid-cols-1 min-[400px]:grid-cols-2 gap-3 min-[360px]:gap-4 sm:gap-6">
-            <article className="rounded-2xl bg-white shadow-sm border border-[var(--color-border-light)] overflow-hidden flex flex-col">
-              <div className="relative aspect-[16/10]">
-                <Image src="/DATA.jpg" alt="Formation DATA MASTER" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+            <article className="group rounded-2xl bg-white shadow-sm border border-[var(--color-border-light)] overflow-hidden flex flex-col transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 hover:border-[var(--color-brand-primary)]/25 focus-within:ring-2 focus-within:ring-[var(--color-brand-primary)] focus-within:ring-offset-2">
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image src="/DATA.jpg" alt="Formation DATA MASTER" fill className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" sizes="(max-width: 1024px) 100vw, 50vw" />
                 <span
                   className="absolute top-3 left-3 inline-flex items-center rounded-full px-3 py-1 text-xs font-[var(--font-weight-bold)] shadow-sm border border-white/25 text-white"
                   style={{ backgroundColor: "rgba(255,255,255,0.16)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", fontFamily: "var(--font-family-sans)" }}
@@ -327,9 +327,9 @@ export default function Home() {
               </div>
             </article>
 
-            <article className="rounded-2xl bg-white shadow-sm border border-[var(--color-border-light)] overflow-hidden flex flex-col">
-              <div className="relative aspect-[16/10]">
-                <Image src="/IA2.jpg" alt="Formation IA MASTER" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+            <article className="group rounded-2xl bg-white shadow-sm border border-[var(--color-border-light)] overflow-hidden flex flex-col transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 hover:border-[var(--color-brand-primary)]/25 focus-within:ring-2 focus-within:ring-[var(--color-brand-primary)] focus-within:ring-offset-2">
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image src="/IA3.jpg" alt="Formation IA MASTER" fill className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" sizes="(max-width: 1024px) 100vw, 50vw" />
                 <span
                   className="absolute top-3 left-3 inline-flex items-center rounded-full px-3 py-1 text-xs font-[var(--font-weight-bold)] shadow-sm border border-white/25 text-white"
                   style={{ backgroundColor: "rgba(255,255,255,0.16)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", fontFamily: "var(--font-family-sans)" }}
@@ -346,8 +346,8 @@ export default function Home() {
                 </h3>
                 <ul className="mt-1 space-y-2 text-sm text-[var(--color-text-body)]" style={{ fontFamily: "var(--font-family-sans)" }}>
                   <li className="flex items-center gap-2">
-                    <svg className="shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a4 4 0 0 0-4 4v3a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4Z" /><path d="M6 10v1a6 6 0 0 0 12 0v-1" /><path d="M12 17v5" /></svg>
-                    Multimodal, agents & MCP
+                    <svg className="shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5Z" /><path d="M6 12v6c3 2 9 2 12 0v-6" /></svg>
+                    Parcours certifiant
                   </li>
                   <li className="flex items-center gap-2">
                     <svg className="shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4" /><path d="M8 2v4" /><path d="M3 10h18" /></svg>
@@ -458,7 +458,7 @@ export default function Home() {
         <div className="max-w-4xl xl:max-w-5xl mx-auto mt-8 min-[360px]:mt-10 sm:mt-16 flex flex-wrap justify-center items-center gap-4 min-[360px]:gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
           {PARTNER_IMAGES.map((partner) => (
             <div key={partner.src} className="flex items-center justify-center h-10 min-[360px]:h-12 sm:h-14 opacity-90 hover:opacity-100 transition-opacity">
-              <Image
+            <Image
                 src={partner.src}
                 alt={partner.alt}
                 width={120}
@@ -532,7 +532,7 @@ export default function Home() {
             <a href="#" className="hover:text-white transition-colors">Mentions légales</a>
             <a href="#" className="hover:text-white transition-colors">Politique de confidentialité</a>
           </div>
-        </div>
+    </div>
       </footer>
     </>
   );

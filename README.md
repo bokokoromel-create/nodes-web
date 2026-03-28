@@ -7,7 +7,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss)](https://tailwindcss.com/)
 
-> Application one-page performante, responsive et animée — conçue pour présenter les services et l'identité de Nodes Technology (Brazzaville, Congo).
+> Application Next.js performante et responsive — page d’accueil riche, pages **formations** (IA MASTER, DATA MASTER), formulaires de contact et d’inscription, envoi WhatsApp via API Flow.
 
 🔗 **Dépôt** : [github.com/bokokoromel-create/nodes-web](https://github.com/bokokoromel-create/nodes-web)
 
@@ -44,7 +44,7 @@ Les entreprises tech africaines manquent souvent d'une vitrine web professionnel
 
 | Métrique | Détail |
 |----------|--------|
-| Type | Site vitrine one-page |
+| Type | Vitrine multi-pages (accueil, formations, formulaires) |
 | Langue | Français |
 | Responsive | Mobile, tablette, desktop |
 | Performance | SSR Next.js, images optimisées |
@@ -62,7 +62,10 @@ Les entreprises tech africaines manquent souvent d'une vitrine web professionnel
 | 👥 **Présentation équipe** | Photo, mission, points forts (Développement IA, Travail d'équipe, Transformation digitale, Excellence technique) |
 | 📊 **Processus métier** | 3 étapes : Analyse et conception, Développement et intégration, Déploiement et amélioration continue |
 | 🤝 **Partenaires** | Logos NSIA, Airtel, Canal, CARIA, BASE64, MTN |
-| 📝 **Formulaire de contact** | Page `/formulaire` avec validation, envoi vers WhatsApp via API Flow |
+| 🎓 **Formations** | Index `/formations`, parcours **IA MASTER** et **DATA MASTER** (listes + pages détail par parcours) |
+| 📝 **Formulaire de contact** | `/formulaire` — entreprise, téléphone, objet ; paramètre optionnel `?objet=` |
+| ✍️ **Inscription formations** | `/formulaire/inscription` — prénom, nom, téléphone, e-mail, parcours (prérempli via `?parcours=`) |
+| ↩️ **Navigation retour** | Composant `BackButton` : retour à la page précédente (historique navigateur) |
 | 🛡️ **Dashboard admin** | Interface `/admin` (stats, graphiques, déconnexion) |
 | 🎬 **Animations au scroll** | Apparition progressive (fade-up) via IntersectionObserver |
 | 📱 **Responsive complet** | Adapté de 320px à 2560px+ |
@@ -129,9 +132,10 @@ L'application est accessible sur **http://localhost:3000**
 ### Personnalisation rapide
 
 - **Couleur principale** : modifier `--color-brand-primary` dans `app/globals.css`
-- **Contenu** : modifier les constantes (`SERVICES`, `PROCESS_STEPS`, `FOOTER_SERVICES`, etc.) dans `app/page.tsx`
+- **Contenu accueil** : constantes (`SERVICES`, `PROCESS_STEPS`, etc.) dans `app/page.tsx`
+- **Parcours formations** : données dans `app/formations/ia-master/ia-master-data.ts` et `app/formations/data-master/data-master-data.ts`
 - **Logo** : remplacer `public/nodes png.png`
-- **Images** : `ia.jpg` (équipe), `pr2.jpg` (processus), logos partenaires dans `public/`
+- **Images** : `ia.jpg` (équipe), `pr2.jpg` (processus), `IA3.jpg` / `DATA.jpg` (formations), logos partenaires dans `public/`
 - **API WhatsApp** : configurer `FLOW_API_KEY` dans `.env.local`
 
 ---
@@ -143,27 +147,37 @@ nodes-web/
 ├── app/
 │   ├── api/
 │   │   └── contact/
-│   │       └── route.ts     ← API POST contact (validation, rate limit, envoi WhatsApp)
+│   │       └── route.ts          ← POST contact + inscription (Zod, rate limit, WhatsApp Flow)
 │   ├── admin/
-│   │   ├── layout.tsx       ← Layout admin (sidebar)
-│   │   └── page.tsx         ← Dashboard (graphiques, stats)
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── formations/
+│   │   ├── page.tsx              ← Liste des formations
+│   │   ├── ia-master/            ← IA MASTER + données + parcours/[id]
+│   │   └── data-master/          ← DATA MASTER + données + parcours/[id]
 │   ├── formulaire/
-│   │   └── page.tsx         ← Formulaire de contact (nom, téléphone, objet)
-│   ├── globals.css          ← Design system (variables CSS, animations)
-│   ├── layout.tsx           ← Layout racine, metadata SEO
-│   └── page.tsx             ← Page d'accueil one-page
+│   │   ├── page.tsx              ← Suspense → formulaire-form.tsx
+│   │   ├── formulaire-form.tsx   ← Contact (useSearchParams pour ?objet=)
+│   │   └── inscription/
+│   │       ├── page.tsx          ← Suspense → inscription-form.tsx
+│   │       └── inscription-form.tsx  ← Inscription (?parcours=)
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx                  ← Accueil (sections principales)
 ├── components/
+│   ├── BackButton.tsx            ← Retour historique (router.back)
+│   ├── form-page-skeleton.tsx    ← Fallback Suspense formulaires
+│   ├── MetaMaskErrorSuppress.tsx
 │   └── admin/
-│       ├── Sidebar.tsx      ← Navigation latérale admin
-│       └── StatsCard.tsx    ← Cartes Satisfaction / Applications
+│       ├── Sidebar.tsx
+│       └── StatsCard.tsx
 ├── lib/
-│   └── rate-limit.ts        ← Rate limiting in-memory (5 req/min par IP)
+│   └── rate-limit.ts             ← Rate limiting in-memory (5 req/min par IP)
 ├── public/
-│   ├── nodes png.png        ← Logo de l'entreprise
-│   ├── ia.jpg               ← Photo section équipe
-│   ├── pr2.jpg              ← Image processus métier
-│   └── *.png, *.jpg         ← Logos partenaires (NSIA, Airtel, etc.)
-├── .env.example             ← Variables d'environnement (FLOW_API_KEY)
+│   ├── nodes png.png
+│   ├── ia.jpg, pr2.jpg, IA3.jpg, DATA.jpg
+│   └── logos partenaires (*.png, *.jpg)
+├── .env.example
 ├── next.config.ts
 ├── postcss.config.mjs
 ├── tsconfig.json
@@ -196,15 +210,28 @@ Le projet utilise un **système de tokens CSS** centralisé dans `:root` :
 
 ### `POST /api/contact`
 
-Envoie les données du formulaire vers WhatsApp via l'API Flow.
+Envoie les données vers WhatsApp via l’API Flow (template `order_confirmation`). Deux modes selon le corps JSON :
 
-#### Corps de la requête (JSON)
+#### Mode contact (par défaut)
 
 | Champ   | Type   | Validation       | Obligatoire |
 |---------|--------|------------------|-------------|
 | `name`  | string | min 2 caractères | Oui         |
 | `phone` | string | min 8 caractères | Oui         |
 | `objet` | string | —                | Oui         |
+
+#### Mode inscription (`type: "inscription"`)
+
+| Champ      | Type   | Validation        | Obligatoire |
+|------------|--------|-------------------|-------------|
+| `type`     | `"inscription"` | littéral | Oui         |
+| `prenom`   | string | non vide (trim)   | Oui         |
+| `nom`      | string | non vide (trim)   | Oui         |
+| `phone`    | string | min 8 caractères  | Oui         |
+| `email`    | string | e-mail valide     | Oui         |
+| `parcours` | string | non vide (trim)   | Oui         |
+
+Le corps du message WhatsApp (paramètre texte 1) résume identité + parcours pour l’inscription ; la campagne est libellée **Inscription formation** (sinon **Site Vitrine**).
 
 #### Réponses
 
@@ -224,12 +251,13 @@ Envoie les données du formulaire vers WhatsApp via l'API Flow.
 
 ## 📚 Ce que j'ai appris
 
-- **Next.js App Router** : structure moderne avec App Router et Server Components
+- **Next.js App Router** : Server Components, routes API, pages dynamiques `[id]`
+- **Suspense + `useSearchParams`** : formulaires avec query string et fallback de chargement
 - **Design system avec CSS Variables** : tokens maintenables
 - **Responsive avancé** : breakpoints Tailwind (dont `min-[360px]`)
 - **Animations performantes** : IntersectionObserver + CSS
 - **Accessibilité** : ARIA, navigation clavier, safe-area-inset
-- **API Routes** : validation Zod, rate limiting, envoi API externe
+- **API Routes** : validation Zod, unions discriminées, rate limiting, appel API externe
 - **Tailwind CSS 4** : nouvelles fonctionnalités
 
 ---
@@ -237,7 +265,8 @@ Envoie les données du formulaire vers WhatsApp via l'API Flow.
 ## 🔮 Améliorations futures
 
 - [x] ~~Backend (API routes) pour le formulaire de contact~~
-- [ ] **CMS headless** (Sanity / Strapi) pour contenu dynamique
+- [x] ~~Pages formations et inscription dédiée~~
+- [ ] **CMS headless** (Sanity / Strapi) pour contenu dynamique (formations, accueil)
 - [ ] **Mode sombre** (dark mode)
 - [ ] **Multi-langue** (français / anglais)
 - [ ] **Tests** (Jest + Testing Library)

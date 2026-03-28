@@ -1,5 +1,6 @@
 "use client";
 
+import BackButton from "@/components/BackButton";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 import { DATA_MASTER_MODULES, DATA_MASTER_PARCOURS } from "../../data-master-data";
@@ -27,16 +28,15 @@ export default function DataMasterParcoursPage() {
       </div>
 
       <div className="max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] mx-auto relative z-10">
-        <Link
-          href="/formations/data-master"
+        <BackButton
           className="inline-flex items-center gap-2 text-sm font-[var(--font-weight-medium)] text-[var(--color-link-text)] hover:text-[var(--color-brand-primary)] transition-all hover:-translate-x-1"
           style={{ fontFamily: "var(--font-family-sans)" }}
         >
           <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
-          Retour aux parcours
-        </Link>
+          Retour
+        </BackButton>
 
         {/* Premium Page Header */}
         <section className="mt-8 sm:mt-12 group">
@@ -125,22 +125,7 @@ export default function DataMasterParcoursPage() {
                       {m!.summary}
                     </p>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="rounded-2xl bg-[var(--color-section-muted)]/50 p-5 border border-transparent hover:border-[var(--color-border-light)] hover:bg-white transition-all">
-                        <h4 className="flex items-center gap-2 text-[10px] font-[var(--font-weight-bold)] uppercase tracking-wider text-[var(--color-link-text)] mb-4">
-                          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5Z"/><path d="M6 12v6c3 2 9 2 12 0v-6"/></svg>
-                          Points clés du module
-                        </h4>
-                        <ul className="space-y-2.5 text-[13px] text-[var(--color-text-body)]">
-                          {m!.bullets.map((b) => (
-                            <li key={b} className="flex gap-2.5 leading-snug">
-                              <svg className="mt-1 w-3.5 h-3.5 shrink-0 text-[var(--color-brand-primary)] opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
-                              <span>{b}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
+                    <div className="grid gap-6">
                       <div className="rounded-2xl bg-[var(--color-brand-primary)]/[0.02] p-5 border border-[var(--color-brand-primary)]/5 hover:bg-white transition-all">
                         <h4 className="flex items-center gap-2 text-[10px] font-[var(--font-weight-bold)] uppercase tracking-wider text-[var(--color-brand-primary)] mb-4">
                           <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -173,7 +158,7 @@ export default function DataMasterParcoursPage() {
 
               <div className="space-y-4 pt-6 border-t border-[var(--color-border-light)]">
                 <Link
-                  href={{ pathname: "/formulaire", query: { objet: `DATA MASTER — ${parcours.title} (paiement)` } }}
+                  href={{ pathname: "/formulaire/inscription", query: { parcours: `DATA MASTER — ${parcours.title}` } }}
                   className="inline-flex items-center justify-center w-full rounded-2xl px-6 py-4 text-white text-sm font-[var(--font-weight-bold)] transition-all hover:shadow-2xl hover:opacity-95 active:scale-[0.98]"
                   style={{
                     backgroundColor: "var(--color-button-primary-bg)",
@@ -181,13 +166,6 @@ export default function DataMasterParcoursPage() {
                   }}
                 >
                   S&apos;inscrire et payer
-                </Link>
-                <Link
-                  href={{ pathname: "/formulaire", query: { objet: `DATA MASTER — ${parcours.title}` } }}
-                  className="inline-flex items-center justify-center w-full rounded-2xl px-6 py-4 border-2 border-white/50 bg-white/30 text-[var(--color-text-heading)] text-sm font-[var(--font-weight-bold)] transition-all hover:bg-white hover:border-[var(--color-brand-primary)]/20 shadow-sm"
-                  style={{ fontFamily: "var(--font-family-sans)" }}
-                >
-                  Demander un devis
                 </Link>
               </div>
             </div>

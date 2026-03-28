@@ -1,5 +1,6 @@
 "use client";
 
+import BackButton from "@/components/BackButton";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,10 +18,10 @@ const FORMATIONS = [
     slug: "/formations/ia-master",
     title: "IA MASTER",
     tag: "IA",
-    meta1: "Multimodal, agents & MCP",
+    meta1: "Parcours certifiant",
     meta2: "Durée : 6 semaines",
     desc: "Comprendre et exploiter l’IA moderne : multimodal, agents, MCP, projets concrets.",
-    image: "/IA2.jpg",
+    image: "/IA3.jpg",
   },
 ] as const;
 
@@ -30,12 +31,12 @@ export default function FormationsIndexPage() {
       <div className="max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] mx-auto">
         <div className="flex items-start justify-between gap-6 flex-wrap">
           <div>
-            <Link href="/" className="inline-flex items-center gap-2 text-sm font-[var(--font-weight-medium)] text-[var(--color-link-text)] hover:text-[var(--color-brand-primary)] transition-colors" style={{ fontFamily: "var(--font-family-sans)" }}>
+            <BackButton className="inline-flex items-center gap-2 text-sm font-[var(--font-weight-medium)] text-[var(--color-link-text)] hover:text-[var(--color-brand-primary)] transition-colors" style={{ fontFamily: "var(--font-family-sans)" }}>
               <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
-              Retour à l&apos;accueil
-            </Link>
+              Retour
+            </BackButton>
             <h1 className="mt-3 font-[var(--font-weight-extrabold)] text-[var(--color-text-heading)]" style={{ fontFamily: "var(--font-family-sans)", fontSize: "var(--font-size-heading-2)" }}>
               Toutes nos formations
             </h1>

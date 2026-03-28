@@ -1,5 +1,6 @@
 "use client";
 
+import BackButton from "@/components/BackButton";
 import Image from "next/image";
 import Link from "next/link";
 import { DATA_MASTER_PARCOURS } from "./data-master-data";
@@ -8,12 +9,12 @@ export default function DataMasterPage() {
   return (
     <main className="min-h-[100dvh] px-[var(--padding-section-x)] py-10 min-[360px]:py-12 sm:py-20" style={{ background: "var(--color-background-white)" }}>
       <div className="max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] mx-auto">
-        <Link href="/" className="inline-flex items-center gap-2 text-sm font-[var(--font-weight-medium)] text-[var(--color-link-text)] hover:text-[var(--color-brand-primary)] transition-all hover:-translate-x-1" style={{ fontFamily: "var(--font-family-sans)" }}>
+        <BackButton className="inline-flex items-center gap-2 text-sm font-[var(--font-weight-medium)] text-[var(--color-link-text)] hover:text-[var(--color-brand-primary)] transition-all hover:-translate-x-1" style={{ fontFamily: "var(--font-family-sans)" }}>
           <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
-          Retour à l&apos;accueil
-        </Link>
+          Retour
+        </BackButton>
 
         {/* Hero Section */}
         <section className="mt-8 sm:mt-12 grid lg:grid-cols-2 gap-10 sm:gap-16 items-center animate-fade-up">
@@ -94,9 +95,14 @@ export default function DataMasterPage() {
                   </div>
                   
                   <div className="flex items-start justify-between gap-2 mb-4">
-                    <span className="inline-flex items-center rounded-full px-3 py-1 text-[10px] font-[var(--font-weight-bold)] uppercase tracking-wider bg-white/80 backdrop-blur-sm border border-[var(--color-border-light)] text-[var(--color-link-text)]">
-                      Parcours {String(idx + 1).padStart(2, "0")}
-                    </span>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="inline-flex items-center rounded-full px-3 py-1 text-[10px] font-[var(--font-weight-bold)] uppercase tracking-wider bg-white/80 backdrop-blur-sm border border-[var(--color-border-light)] text-[var(--color-link-text)]">
+                        Parcours {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <span className="inline-flex items-center rounded-full px-3 py-1 text-[10px] sm:text-xs font-[var(--font-weight-extrabold)] border border-[var(--color-border-light)] text-[var(--color-brand-primary)] bg-white">
+                        25 000 FCFA
+                      </span>
+                    </div>
                     <span className="inline-flex max-w-[58%] sm:max-w-none items-center rounded-lg px-2 py-1 text-[10px] sm:text-xs leading-tight font-[var(--font-weight-bold)] bg-[var(--color-brand-primary)] text-white shadow-sm break-words">
                       {p.duration}
                     </span>
@@ -121,7 +127,7 @@ export default function DataMasterPage() {
                       Modules clés
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {p.modules.slice(0, 4).map((m) => (
+                      {p.modules.map((m) => (
                         <span
                           key={m}
                           className="inline-flex items-center rounded-md px-2 py-1 text-[11px] font-[var(--font-weight-bold)] bg-[var(--color-section-muted)] text-[var(--color-text-heading)] border border-[var(--color-border-light)] group-hover:border-[var(--color-brand-primary)]/20 transition-colors"
@@ -129,11 +135,6 @@ export default function DataMasterPage() {
                           M{m}
                         </span>
                       ))}
-                      {p.modules.length > 4 && (
-                        <span className="text-[11px] font-[var(--font-weight-bold)] text-[var(--color-link-text)] flex items-center">
-                          +{p.modules.length - 4} plus
-                        </span>
-                      )}
                     </div>
                   </div>
 
@@ -154,11 +155,11 @@ export default function DataMasterPage() {
                       Détails du programme
                     </Link>
                     <Link
-                      href={{ pathname: "/formulaire", query: { objet: `DATA MASTER — ${p.title} (paiement)` } }}
+                      href={{ pathname: "/formulaire/inscription", query: { parcours: `DATA MASTER — ${p.title}` } }}
                       className="inline-flex items-center justify-center w-full rounded-xl px-5 py-3 text-white text-sm font-[var(--font-weight-bold)] transition-all hover:shadow-xl active:scale-[0.98]"
                       style={{ backgroundColor: "var(--color-button-primary-bg)" }}
                     >
-                      S&apos;inscrire maintenant
+                      S&apos;inscrire et payer
                     </Link>
                   </div>
                 </div>
