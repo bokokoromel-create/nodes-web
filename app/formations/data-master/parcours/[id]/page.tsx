@@ -14,7 +14,7 @@ type PageProps = {
   params: Promise<{ id: string }>;
 };
 
-const DATA_MASTER_PRICE = "25 000 FCFA";
+const DATA_MASTER_PRICE = "25 000 FCFA / mois";
 
 export function generateStaticParams() {
   return DATA_MASTER_PARCOURS.map((parcours) => ({ id: parcours.id }));
@@ -137,7 +137,7 @@ export default async function DataMasterParcoursPage({ params }: PageProps) {
                     <span className="mb-1 text-[10px] font-[var(--font-weight-bold)] uppercase text-[var(--color-link-text)] opacity-70">
                       Investissement
                     </span>
-                    <span className="inline-flex items-center rounded-xl border border-transparent bg-[var(--color-brand-primary)] px-4 py-2 text-sm font-[var(--font-weight-extrabold)] text-white shadow-sm">
+                    <span className="inline-flex items-center rounded-xl border border-transparent bg-[var(--color-brand-primary)] px-3 py-2 text-center text-[12px] font-[var(--font-weight-extrabold)] text-white shadow-sm whitespace-nowrap sm:px-4 sm:text-[13px]">
                       {DATA_MASTER_PRICE}
                     </span>
                   </div>

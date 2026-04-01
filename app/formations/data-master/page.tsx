@@ -168,13 +168,24 @@ export default function DataMasterPage() {
                   </div>
 
                   <div className="mt-5 grid grid-cols-2 gap-3 text-sm">
-                    <div className="rounded-2xl border border-[var(--color-border-light)]/90 bg-white px-4 py-3">
-                      <p className="text-[10px] font-[var(--font-weight-bold)] uppercase tracking-[0.14em] text-[var(--color-link-text)]">Tarif</p>
-                      <p className="mt-1 text-[1rem] font-[var(--font-weight-extrabold)] text-[var(--color-brand-primary)]">25 000 FCFA</p>
+                    <div className="flex flex-col items-center justify-center rounded-2xl border border-[var(--color-border-light)]/90 bg-white px-4 py-3 text-center">
+                      <p className="text-[10px] font-[var(--font-weight-bold)] uppercase tracking-[0.14em] text-[var(--color-link-text)]">
+                        Tarif
+                      </p>
+                      <p className="mt-1 whitespace-nowrap text-[0.85rem] font-[var(--font-weight-extrabold)] leading-tight text-[var(--color-brand-primary)] sm:text-[0.9rem]">
+                        25 000 FCFA{" "}
+                        <span className="text-[0.72rem] font-[var(--font-weight-bold)] uppercase tracking-[0.12em] text-[var(--color-link-text)] opacity-70 sm:text-[0.78rem]">
+                          / mois
+                        </span>
+                      </p>
                     </div>
-                    <div className="rounded-2xl border border-[var(--color-border-light)]/90 bg-white px-4 py-3">
-                      <p className="text-[10px] font-[var(--font-weight-bold)] uppercase tracking-[0.14em] text-[var(--color-link-text)]">Durée</p>
-                      <p className="mt-1 text-[1rem] font-[var(--font-weight-bold)] text-[var(--color-text-heading)]">{parcours.duration}</p>
+                    <div className="flex flex-col items-center justify-center rounded-2xl border border-[var(--color-border-light)]/90 bg-white px-4 py-3 text-center">
+                      <p className="text-[10px] font-[var(--font-weight-bold)] uppercase tracking-[0.14em] text-[var(--color-link-text)]">
+                        Durée
+                      </p>
+                      <p className="mt-1 text-[1rem] font-[var(--font-weight-bold)] leading-tight text-[var(--color-text-heading)]">
+                        {parcours.duration}
+                      </p>
                     </div>
                   </div>
 
